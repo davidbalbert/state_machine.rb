@@ -5,6 +5,8 @@ class FooMachine
 
   start_state :foo
 
+  state :asdf, :qwerty
+
   define_transition :foo => :bar, :bar => :baz do |from, to|
     puts "#{from.inspect} to #{to.inspect}"
   end
@@ -27,3 +29,4 @@ fm.transition_to(:bar)
 fm.transition_to(:baz)
 fm.transition_to(:qux)
 puts fm.transition_to(:bozo)
+fm.transition_to(:asdf)

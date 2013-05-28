@@ -1,3 +1,16 @@
+#  This program is free software: you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your
+#  option) any later version.
+#
+#  This program is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+#  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
+#  License for more details.
+#
+#  You should have received a copy of the GNU Lesser General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 require 'set'
 
 module StateMachine
@@ -17,12 +30,24 @@ module StateMachine
 
         transitions[[from, to]] = handler
       end
+
+      nil
+    end
+
+    def state(*new_states)
+      new_states.each do |state|
+        states << state
+      end
+
+      nil
     end
 
     def start_state(state = nil)
       if state
         states << state
         @start_state = state
+
+        nil
       else
         @start_state
       end
