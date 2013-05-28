@@ -41,8 +41,8 @@ module StateMachine
     def initialize(*args)
       super(*args)
 
-      if @state.nil? && start_state
-        @state = start_state
+      if @state.nil? && self.class.start_state
+        @state = self.class.start_state
       end
     end
   end
@@ -53,10 +53,6 @@ module StateMachine
 
   def states
     self.class.states
-  end
-
-  def start_state
-    self.class.start_state
   end
 
   def state
